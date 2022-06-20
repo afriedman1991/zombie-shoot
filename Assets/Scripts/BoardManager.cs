@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName = "BoardManager", menuName = "ScriptableObjects/BoardManagerScriptableObject")]
-public class BoardManager : ScriptableObject
+public class BoardManager : MonoBehaviour
 {
 
     public class Count

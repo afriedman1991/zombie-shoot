@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4817450690107726694}
   - component: {fileID: 6705076657649352644}
+  - component: {fileID: 3359283441081058485}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,5 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3c3decd123f48e2a893713216484c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardManager: {fileID: 11400000, guid: 6dba0e78bc17840d6993cdd6123008f0, type: 2}
+  boardManager: {fileID: 3359283441081058485}
+  board: {fileID: 6402194088690180703, guid: f8e41edaf61b143669acb1ff18c277db, type: 3}
+--- !u!114 &3359283441081058485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807856642453381702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877a130b29bb04cb88de8318da873eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 20
+  rows: 20
+  level: 1
+  floorObjects:
+  - {fileID: 5827548484420876638, guid: 49398971a10474dbba8b865a7c6cd956, type: 3}
+  wallObjects:
+  - {fileID: 2135271753823472256, guid: e634512c32eba4bb48a640ac26b44249, type: 3}
+  outerWallObjects:
+  - {fileID: 2135271753823472256, guid: e634512c32eba4bb48a640ac26b44249, type: 3}
+  enemyObjects:
+  - {fileID: 5160708387955854016, guid: f3b9fdad4c3a6410698ff0875844173a, type: 3}
   board: {fileID: 6402194088690180703, guid: f8e41edaf61b143669acb1ff18c277db, type: 3}

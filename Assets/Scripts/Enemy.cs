@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public EnemyFollow movement;
     public GameObject player;
-    public GameObject[] bloodAnimations;
     public float health;
     public float pointsToGive;
     public float TimeDelayToReactivate;
