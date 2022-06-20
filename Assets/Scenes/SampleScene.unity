@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f59797714c524004a050a9d63d968a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 4
   jumpHeight: 1
   gravityValue: -9.81
   rotationSpeed: 5
@@ -521,6 +521,8 @@ MonoBehaviour:
   barrelTransform: {fileID: 198900211}
   bulletParent: {fileID: 2117272367}
   bulletOffset: 25
+  animSmoothTime: 0.05
+  animPlayTransition: 0.15
 --- !u!143 &579947505
 CharacterController:
   m_ObjectHideFlags: 0
@@ -532,13 +534,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.7
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.81, z: 0}
+  m_Center: {x: 0, y: 0.89, z: 0}
 --- !u!114 &579947506
 MonoBehaviour:
   m_ObjectHideFlags: 0

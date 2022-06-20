@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform bulletParent;
     [SerializeField] private float bulletOffset = 25f;
     [SerializeField] private float animSmoothTime = 0.1f;
+    [SerializeField] private float animPlayTransition = 0.15f;
 
     // Player movement
     private CharacterController controller;
@@ -25,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private InputAction shootAction;
 
     private Animator animator;
-    private int moveXAnimID;
-    private int moveZAnimID;
+    int jumpAnimation;
+    int moveXAnimID;
+    int moveZAnimID;
 
     Vector2 currAnimBlendVector;
     Vector2 animVelocity;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         animator = GetComponent<Animator>();
+        jumpAnimation = Animator.StringToHash("Pistol Jump");
         moveXAnimID = Animator.StringToHash("MoveX");
         moveZAnimID = Animator.StringToHash("MoveZ");
     }
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour
         if (jumpAction.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.CrossFade(jumpAnimation, animPlayTransition);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
