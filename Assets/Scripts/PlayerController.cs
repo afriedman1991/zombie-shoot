@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bulletOffset = 25f;
     [SerializeField] private float animSmoothTime = 0.1f;
     [SerializeField] private float animPlayTransition = 0.15f;
+    [SerializeField] private Transform aimTarget;
+    [SerializeField] private float aimDistance = 1f;
 
     // Player movement
     private CharacterController controller;
@@ -63,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
     private void ShootGun()
     {
-        Debug.Log("Shooting Gun");
         RaycastHit hit;
         GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
         BulletController bulletController = bullet.GetComponent<BulletController>();
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        aimTarget.position = cameraTransform.position + cameraTransform.forward * aimDistance;
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
