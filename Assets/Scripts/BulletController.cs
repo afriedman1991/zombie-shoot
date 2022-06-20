@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private GameObject bulletDecal;
+    [SerializeField] private GameObject[] bloodAnimations;
+
     private float speed = 50f;
     public float timeToDestroy = 3f;
 
@@ -33,7 +33,12 @@ public class BulletController : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
+            GameObject toInstantiate = bloodAnimations[Random.Range(0, bloodAnimations.Length)];
+            GameObject instance = Instantiate(toInstantiate, contact.point + contact.normal * .0001f, Quaternion.LookRotation(contact.normal));
+            var reactivator = instance.AddComponent<DemoReactivator>();
+            reactivator.Reactivate();
             other.gameObject.GetComponent<Enemy>().health -= 1;
+            Destroy(instance, 2f);
         }
         else
         {

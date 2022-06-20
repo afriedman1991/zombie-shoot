@@ -26,8 +26,6 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             animator.SetBool("isDead", true);
-            //player.GetComponent<Player>().points += pointsToGive;
-            //pointsToGive = 0;
             StartCoroutine(AdjustCapsuleCollider());
             StartCoroutine(Die());
         }
@@ -35,7 +33,6 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator Die()
     {
-        print("Enemy " + this.gameObject.name + " has died");
         yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
